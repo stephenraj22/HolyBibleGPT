@@ -29,6 +29,12 @@ from torch.distributed import init_process_group, destroy_process_group
 
 from model import GPTConfig, GPT
 
+import torch._dynamo
+torch._dynamo.config.suppress_errors = True
+
+os.environ["TORCH_LOGS"] = "+dynamo"
+os.environ["TORCHDYNAMO_VERBOSE"] = "1"
+
 # -----------------------------------------------------------------------------
 # default config values designed to train a gpt2 (124M) on OpenWebText
 # I/O
