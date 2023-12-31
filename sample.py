@@ -8,6 +8,8 @@ import torch
 import tiktoken
 from model import GPTConfig, GPT
 
+os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
+
 # -----------------------------------------------------------------------------
 init_from = 'resume' # either 'resume' (from an out_dir) or a gpt2 variant (e.g. 'gpt2-xl')
 out_dir = 'out' # ignored if init_from is not 'resume'
@@ -56,7 +58,7 @@ if compile:
 # look for the meta pickle in case it is available in the dataset folder
 load_meta = False
 if init_from == 'resume' and 'config' in checkpoint and 'dataset' in checkpoint['config']: # older checkpoints might not have these...
-    meta_path = os.path.join('data', checkpoint['config']['dataset'], 'meta.pkl')
+    meta_path = os.path.join('/content/HolyBibleGPT/data/holy_bible', 'meta.pkl')
     load_meta = os.path.exists(meta_path)
 if load_meta:
     print(f"Loading meta from {meta_path}...")
