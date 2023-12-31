@@ -10,7 +10,7 @@ import requests
 import numpy as np
 
 # Open the holy bible dataset
-input_file_path = os.path.join(os.path.dirname(__file__), 'holybible.txt')
+input_file_path = os.path.join(os.path.dirname(__file__), 'holybible1.txt')
 # if not os.path.exists(input_file_path):
 #     data_url = 'holybible.txt'
 #     with open(input_file_path, 'w') as f:
