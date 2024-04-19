@@ -79,7 +79,10 @@ else:
 if start.startswith('FILE:'):
     with open(start[5:], 'r', encoding='utf-8') as f:
         start = f.read()
+start="How to overcome depression?"
+print(start, "stephen")
 start_ids = encode(start)
+print(start_ids, "stephen")
 x = (torch.tensor(start_ids, dtype=torch.long, device=device)[None, ...])
 
 # run generation
